@@ -1,0 +1,72 @@
+{
+    "info": {
+        "name": "Property Platform API",
+        "description": "Backend assessment endpoints",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Create Enquiry",
+            "request": {
+                "method": "POST",
+                "url": "http://localhost:3000/api/enquiry",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"name\":\"John Doe\",\"email\":\"john@example.com\",\"message\":\"I want this property\",\"phone\":\"+1234567890\"}"
+                }
+            }
+        },
+        {
+            "name": "Get Enquiry by ID",
+            "request": {
+                "method": "GET",
+                "url": "http://localhost:3000/api/enquiry/{{enquiry_id}}"
+            }
+        },
+        {
+            "name": "List Enquiries (Paginated)",
+            "request": {
+                "method": "GET",
+                "url": "http://localhost:3000/api/enquiry?page=1&limit=10&status=pending"
+            }
+        },
+        {
+            "name": "Webhook CRM Sync",
+            "request": {
+                "method": "POST",
+                "url": "http://localhost:3000/api/webhook/crm",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "X-Hub-Signature",
+                        "value": "{{crm_signature}}"
+                    },
+                    {
+                        "key": "X-Idempotency-Key",
+                        "value": "key-{{$timestamp}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"event\":\"enquiry.contacted\",\"enquiry_id\":\"{{enquiry_id}}\",\"crm_id\":\"crm_123\"}"
+                }
+            }
+        },
+        {
+            "name": "Get Properties (WP)",
+            "request": {
+                "method": "GET",
+                "url": "http://localhost:3000/api/properties?page=1"
+            }
+        }
+    ]
+}

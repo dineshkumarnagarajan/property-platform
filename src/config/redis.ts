@@ -5,8 +5,7 @@ export const redis = new Redis({
     host: config.redis.host,
     port: config.redis.port,
     password: config.redis.password || undefined,
-    maxRetriesPerRequest: 3,
-    lazyConnect: true,
+    maxRetriesPerRequest: null,
 });
 
 redis.on('connect', () => console.log('Redis connected'));

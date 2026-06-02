@@ -10,9 +10,8 @@ async function start() {
         await db.raw('SELECT 1');
         logger.info('MySQL connected');
 
-        // Test Redis connection
-        await redis.connect();
-        logger.info('Redis connected');
+        // Redis connects automatically
+        logger.info('Redis ready');
 
         app.listen(config.port, () => {
             logger.info(`Server running on port ${config.port}`);
