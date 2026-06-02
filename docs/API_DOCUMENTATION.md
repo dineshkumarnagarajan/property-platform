@@ -2,7 +2,7 @@
 
 ## Base URL
 - Development: `http://localhost:3000`
-- Production: `https://yourdomain.com`
+- Production: `N/A`
 
 ## Authentication
 Currently no auth required. JWT support ready for future.
