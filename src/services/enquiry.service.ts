@@ -33,7 +33,7 @@ export const enquiryService = {
         return enquiry;
     },
 
-    getById: async (id: string) => {
+    getById: async (id: any) => {
         const cached = await cacheManager.get(CACHE_KEYS.ENQUIRY(id));
         if (cached) return cached;
 

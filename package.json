@@ -12,6 +12,11 @@
     "migrate": "tsx scripts/migrate.ts",
     "test": "jest"
   },
+  "pnpm": {
+    "overrides": {
+      "ioredis": "5.11.0"
+    }
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
