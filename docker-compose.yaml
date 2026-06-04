@@ -21,6 +21,18 @@ services:
       - '6379:6379'
     volumes:
       - redis_data:/data
+  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pp_phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: pp_user
+      PMA_PASSWORD: pp_password
+    ports:
+      - '8080:80'
+    depends_on:
+      - mysql
 
 volumes:
   mysql_data:

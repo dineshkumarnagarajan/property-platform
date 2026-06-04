@@ -87,7 +87,7 @@ property-platform/
 ### Quick Start
 
 ```bash
-git clone [repo-url]
+git clone https://github.com/dineshkumarnagarajan/property-platform.git
 cd property-platform
 pnpm install
 docker-compose up -d
